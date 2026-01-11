@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+    <html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1 class="mb-4">Categories</h1>
+
+        <a href="/Categories/Create" class="btn btn-info mb-4">
+            + Add New Category
+        </a>
+
+        @foreach (var item in Model)
+        {
+            <div class="border p-3 mb-3 rounded">
+
+                <h5 class="mb-2">
+                    @item.Id - @item.Name
+                </h5>
+
+                <a href="/Categories/Details/@item.Id" class="btn btn-sm btn-primary">
+                    Details
+                </a>
+
+                <a href="/Categories/Delete/@item.Id" class="btn btn-sm btn-danger">
+                    Delete
+                </a>
+
+            </div>
+        }
+
+    </body>
+    </html>
