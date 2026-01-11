@@ -16,14 +16,18 @@ namespace MVC_Task.Controllers
 
         public IActionResult Create()
         {
-            return View("Create");
+            return View("Create" , new Category());
         }
         public IActionResult Store(Category request)
         {
-            context.Categories.Add(request);
-            context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                context.Categories.Add(request);
+                context.SaveChanges();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            return View("Create", request);
         }
 
         public IActionResult Delete(int id)
